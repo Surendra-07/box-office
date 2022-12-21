@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import ActorGrid from "../Component/actor/ActorGrid";
+import ShowGrid from "../Component/show/ShowGrid";
 import { apiGet } from "../misc/config";
 
 const Home = () => {
@@ -31,11 +33,11 @@ const Home = () => {
       return <div>No results</div>;
     }
     if (results && results.length > 0) {
-      return results[0].show
-        ? results.map((item) => <div key={item.show.id}>{item.show.name}</div>)
-        : results.map((item) => (
-            <div key={item.person.id}>{item.person.name}</div>
-          ));
+      return results[0].show ? (
+        <ShowGrid data={results} />
+      ) : (
+        <ActorGrid data={results} />
+      );
     }
     return null;
   };
@@ -55,32 +57,32 @@ const Home = () => {
           onKeyDown={onKeyDown}
           value={input}
         ></input>
-        <button type="Button" onClick={onSearch}>
-          Search
-        </button>
       </div>
-      <label htmlFor="shows-search">
-        Shows
-        <input
-          id="shows-search"
-          checked={isShowSearch}
-          type="radio"
-          value="shows"
-          onChange={onradiochange}
-        />
-      </label>
-
-      <label htmlFor="actors-search">
-        Actors
-        <input
-          id="actors-search"
-          type="radio"
-          value="people"
-          checked={!isShowSearch}
-          onChange={onradiochange}
-        />
-      </label>
-
+      <div>
+        <label htmlFor="shows-search">
+          Shows
+          <input
+            id="shows-search"
+            checked={isShowSearch}
+            type="radio"
+            value="shows"
+            onChange={onradiochange}
+          />
+        </label>
+        <label htmlFor="actors-search">
+          Actors
+          <input
+            id="actors-search"
+            type="radio"
+            value="people"
+            checked={!isShowSearch}
+            onChange={onradiochange}
+          />
+        </label>
+      </div>
+      <button type="Button" onClick={onSearch}>
+        Search
+      </button>
       {renderResults()}
     </div>
   );
