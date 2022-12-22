@@ -45,7 +45,7 @@ const Home = () => {
   const onradiochange = (ev) => {
     setSearchOption(ev.target.value);
   };
-  console.log(searchOption);
+
   return (
     <div>
       <div>
