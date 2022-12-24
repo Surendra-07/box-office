@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-import Navs from "../Component/Navs";
-
 import ShowGrid from "../Component/show/ShowGrid";
-import Title from "../Component/Title";
 import { apiGet } from "../misc/config";
 import { useShows } from "../misc/custom-hooks";
 
@@ -36,8 +32,6 @@ const Starred = () => {
 
   return (
     <div>
-      <Title />
-      <Navs />
       {isLoading && <div>shows are still loading</div>}
       {error && <div>error ocurred={error}</div>}
       {!isLoading && !shows && <div>No shows</div>}

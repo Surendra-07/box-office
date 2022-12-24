@@ -3,9 +3,8 @@ import { useState } from "react";
 import ActorGrid from "../Component/actor/ActorGrid";
 import CustomRadio from "../Component/CustomRadio";
 
-import Navs from "../Component/Navs";
 import ShowGrid from "../Component/show/ShowGrid";
-import Title from "../Component/Title";
+
 import { apiGet } from "../misc/config";
 import { useLastQuery } from "../misc/custom-hooks";
 import {
@@ -58,8 +57,6 @@ const Home = () => {
 
   return (
     <div>
-      <Title />
-      <Navs />
       <div>
         <SearchInput
           type="text"
