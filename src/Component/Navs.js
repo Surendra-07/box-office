@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { LinkStyled, NavList } from "./Navs.styled";
 import { useLocation } from "react-router-dom";
 const Links = [
