@@ -1,11 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import ActorGrid from "../Component/actor/ActorGrid";
+import CustomRadio from "../Component/CustomRadio";
 import ShowGrid from "../Component/show/ShowGrid";
 import { apiGet } from "../misc/config";
+import { useLastQuery } from "../misc/custom-hooks";
+import {
+  RadioInputsWrapper,
+  SearchButtonWrapper,
+  SearchInput,
+} from "./Home.styled";
 
 const Home = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useLastQuery();
   const [results, setResults] = useState(null);
   const [searchOption, setSearchOption] = useState("shows");
   let isShowSearch = searchOption === "shows";
@@ -49,40 +56,43 @@ const Home = () => {
   return (
     <div>
       <div>
-        <input
+        <SearchInput
           type="text"
           name="search"
           onChange={oninput}
           placeholder="Search Here"
           onKeyDown={onKeyDown}
           value={input}
-        ></input>
+        />
       </div>
-      <div>
-        <label htmlFor="shows-search">
-          Shows
-          <input
+      <RadioInputsWrapper>
+        <div>
+          <CustomRadio
+            label="Shows"
             id="shows-search"
             checked={isShowSearch}
             type="radio"
             value="shows"
             onChange={onradiochange}
           />
-        </label>
-        <label htmlFor="actors-search">
-          Actors
-          <input
+        </div>
+        <div>
+          <CustomRadio
+            label="Actors"
             id="actors-search"
+            checked={!isShowSearch}
             type="radio"
             value="people"
-            checked={!isShowSearch}
             onChange={onradiochange}
           />
-        </label>
-      </div>
-      <button type="Button" onClick={onSearch}>
-        Search
-      </button>
+        </div>
+      </RadioInputsWrapper>
+
+      <SearchButtonWrapper>
+        <button type="Button" onClick={onSearch}>
+          Search
+        </button>
+      </SearchButtonWrapper>
       {renderResults()}
     </div>
   );

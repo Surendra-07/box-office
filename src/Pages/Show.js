@@ -1,54 +1,20 @@
-import React, { useEffect, useReducer } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Cast from "../Component/show/Cast";
 import Details from "../Component/show/Details";
 import Seasons from "../Component/show/Seasons";
 import ShowMainData from "../Component/show/ShowMainData";
-import { apiGet } from "../misc/config";
+
+import { useShow } from "../misc/custom-hooks";
 import { InfoBlock, ShowPageWrapper } from "./Show.styled";
 const Show = () => {
-  const intialState = {
-    show: null,
-    isLoading: true,
-    error: null,
-  };
-
-  const reducer = (prevState, action) => {
-    switch (action.type) {
-      case "FETCH_SUCCESS": {
-        return { isLoading: false, error: null, show: action.show };
-      }
-      case "FETCH_FAILURE": {
-        return { ...prevState, isLoading: false, error: action.error };
-      }
-      default:
-        return prevState;
-    }
-  };
-
-  const [{ show, isLoading, error }, dispatch] = useReducer(
-    reducer,
-    intialState
-  );
-
   const { id } = useParams();
+  const { show, isLoading, error } = useShow(id);
+
   // const [show, setShow] = useState(null);
   // const [isLoading, setIsLoading] = useState(true);
   // const [error, setError] = useState(null);
 
-  useEffect(() => {
-    apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`)
-      .then((r) => r.json())
-      .then((results) => {
-        setTimeout(() => {
-          dispatch({ type: "FETCH_SUCCESS", show: results });
-        }, 2000);
-      })
-      .catch((err) => {
-        dispatch({ type: "FETCH_FAILURE", err: err.message });
-      });
-  }, [id]);
-  console.log("show", show);
   if (isLoading) {
     return <div>Data is being Loading</div>;
   }
