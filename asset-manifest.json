@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/box-office/static/css/main.b7717f4a.css",
-    "main.js": "/box-office/static/js/main.3248c689.js",
-    "static/js/787.6e354c4d.chunk.js": "/box-office/static/js/787.6e354c4d.chunk.js",
-    "index.html": "/box-office/index.html",
-    "main.b7717f4a.css.map": "/box-office/static/css/main.b7717f4a.css.map",
-    "main.3248c689.js.map": "/box-office/static/js/main.3248c689.js.map",
-    "787.6e354c4d.chunk.js.map": "/box-office/static/js/787.6e354c4d.chunk.js.map"
+    "main.css": "/home/static/css/main.b7717f4a.css",
+    "main.js": "/home/static/js/main.ae60723c.js",
+    "static/js/787.6e354c4d.chunk.js": "/home/static/js/787.6e354c4d.chunk.js",
+    "index.html": "/home/index.html",
+    "main.b7717f4a.css.map": "/home/static/css/main.b7717f4a.css.map",
+    "main.ae60723c.js.map": "/home/static/js/main.ae60723c.js.map",
+    "787.6e354c4d.chunk.js.map": "/home/static/js/787.6e354c4d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b7717f4a.css",
-    "static/js/main.3248c689.js"
+    "static/js/main.ae60723c.js"
   ]
 }
