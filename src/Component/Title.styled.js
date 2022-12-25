@@ -10,7 +10,10 @@ export const TitleWrapper = styled.div`
     text-transform: uppercase;
     margin: 0 0 10px;
   }
-
+  h4 {
+    color: ${({ theme }) => theme.mainColors.dark};
+    margin: 0;
+  }
   p {
     color: ${({ theme }) => theme.mainColors.dark};
     margin: 0;

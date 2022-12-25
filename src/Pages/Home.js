@@ -4,6 +4,7 @@ import ActorGrid from "../Component/actor/ActorGrid";
 import CustomRadio from "../Component/CustomRadio";
 
 import ShowGrid from "../Component/show/ShowGrid";
+import { TitleWrapper } from "../Component/Title.styled";
 
 import { apiGet } from "../misc/config";
 import { useLastQuery } from "../misc/custom-hooks";
@@ -39,7 +40,11 @@ const Home = () => {
 
   const renderResults = () => {
     if (results && results.length === 0) {
-      return <div>No results</div>;
+      return (
+        <TitleWrapper>
+          <h4>No results</h4>
+        </TitleWrapper>
+      );
     }
     if (results && results.length > 0) {
       return results[0].show ? (

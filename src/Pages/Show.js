@@ -4,6 +4,7 @@ import Cast from "../Component/show/Cast";
 import Details from "../Component/show/Details";
 import Seasons from "../Component/show/Seasons";
 import ShowMainData from "../Component/show/ShowMainData";
+import { TitleWrapper } from "../Component/Title.styled";
 
 import { useShow } from "../misc/custom-hooks";
 import { InfoBlock, ShowPageWrapper } from "./Show.styled";
@@ -16,10 +17,18 @@ const Show = () => {
   // const [error, setError] = useState(null);
 
   if (isLoading) {
-    return <div>Data is being Loading</div>;
+    return (
+      <TitleWrapper>
+        <h4>Data is being Loading</h4>
+      </TitleWrapper>
+    );
   }
   if (error) {
-    return <div>Error occured : {error.message}</div>;
+    return (
+      <TitleWrapper>
+        <h4>Error occured : {error.message}</h4>
+      </TitleWrapper>
+    );
   }
 
   return (
