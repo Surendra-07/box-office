@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ShowGrid from "../Component/show/ShowGrid";
+import { TitleWrapper } from "../Component/Title.styled";
 import { apiGet } from "../misc/config";
 import { useShows } from "../misc/custom-hooks";
 
@@ -32,9 +33,21 @@ const Starred = () => {
 
   return (
     <div>
-      {isLoading && <div>shows are still loading</div>}
-      {error && <div>error ocurred={error}</div>}
-      {!isLoading && !shows && <div>No shows</div>}
+      {isLoading && (
+        <TitleWrapper>
+          <h4>shows are still loading</h4>
+        </TitleWrapper>
+      )}
+      {error && (
+        <TitleWrapper>
+          <h4>error ocurred={error}</h4>
+        </TitleWrapper>
+      )}
+      {!isLoading && !shows && (
+        <TitleWrapper>
+          <h4>No Shows</h4>
+        </TitleWrapper>
+      )}
       {!isLoading && !error && shows && <ShowGrid data={shows} />}
     </div>
   );
