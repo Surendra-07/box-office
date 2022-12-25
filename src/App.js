@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./Pages/Home";
 import Navs from "./Component/Navs";
 import Starred from "./Pages/Starred";
@@ -17,13 +17,15 @@ const theme = {
 };
 
 function App() {
+  const location = useLocation();
+  console.log(location);
   return (
     <ThemeProvider theme={theme}>
       <Title />
       <Navs />
 
       <Routes>
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route exact path="/Starred" element={<Starred />}></Route>
         <Route exact path="/show/:id" element={<Show />}></Route>
       </Routes>

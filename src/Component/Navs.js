@@ -3,7 +3,7 @@ import React from "react";
 import { LinkStyled, NavList } from "./Navs.styled";
 import { useLocation } from "react-router-dom";
 const Links = [
-  { to: "/home", text: "Home Page" },
+  { to: "/", text: "Home Page" },
   { to: "/Starred", text: "Starred page" },
 ];
 
