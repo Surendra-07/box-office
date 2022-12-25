@@ -23,7 +23,7 @@ function App() {
       <Navs />
 
       <Routes>
-        <Route exact path="/" element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
         <Route exact path="/Starred" element={<Starred />}></Route>
         <Route exact path="/show/:id" element={<Show />}></Route>
       </Routes>
